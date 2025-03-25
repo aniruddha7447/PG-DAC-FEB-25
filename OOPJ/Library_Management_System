@@ -328,7 +328,7 @@ public class LibraryManagementSystem{
 					break;
 				
 				case 8:
-                    System.out.println("Exiting...\nThankYou for using Amol's Library");		//\uD83D\uDE0A
+                    System.out.println("Exiting...\nThankYou for using Aniruddha's Library");		//\uD83D\uDE0A
                     return;
 					
 				
