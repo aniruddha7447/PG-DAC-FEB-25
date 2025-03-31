@@ -79,46 +79,20 @@ class ContactList {
         } 
     }
     
-    public static void main(String args[]) {
-        ContactList M1 = new ContactList();
-        Scanner sc = new Scanner(System.in);
-
- 
-            System.out.println("1. Add Contact");
-            System.out.println("2. Remove Contact");
-            System.out.println("3. Search Contact");
-            System.out.println("4. Display Contacts");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            
-            int choice = sc.nextInt();
-            sc.nextLine();  
-
-            if (choice == 1) {
-                System.out.print("Enter name: ");
-                String name = sc.nextLine();
-                System.out.print("Enter Phone Number: ");
-                String phone = sc.nextLine();
-                M1.addContact(name, phone);
-            } 
-            else if (choice == 2) {
-                System.out.print("Enter name to remove: ");
-                String name = sc.nextLine();
-                M1.removeContact(name);
-            } 
-            else if (choice == 3) {
-                System.out.print("Enter name to search: ");
-                String name = sc.nextLine();
-                M1.searchContact(name);
-            } 
-            else if (choice == 4) {
-                M1.displayContacts();
-            } 
-            else if (choice == 5) {
-                System.out.println("Exiting....Thank You!");
-            } 
-            else {
-                System.out.println("Invalid choice, try again.");
-            }
-        }
+    public static void main(String args[]){
+		ContactList L = new ContactList();
+		L.addContact("Aditya Kansana", "9425760166");
+		L.addContact("Aniruddha", "7447653314");
+		L.addContact("Amol", "7261910026");
+		L.displayContacts();
+		System.out.println("\n");
+		
+		L.removeContact("Aditya Kansana");
+		L.displayContacts();
+		System.out.println("\n");
+		
+		L.searchContact("Aniruddha");
+		L.displayContacts();
+		System.out.println("\n");
+    }
 }
