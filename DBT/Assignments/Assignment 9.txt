@@ -1,0 +1,58 @@
+mysql> SELECT o.onum, c.cname FROM orders o JOIN customers c ON o.cnum = c.cnum;
++------+----------+
+| onum | cname    |
++------+----------+
+| 3001 | Cisneros |
+| 3003 | Hoffman  |
+| 3002 | Pereira  |
+| 3005 | Liu      |
+| 3006 | Cisneros |
+| 3009 | Giovanni |
+| 3007 | Grass    |
+| 3008 | Clemens  |
+| 3010 | Grass    |
+| 3011 | Clemens  |
++------+----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT o.onum, s.sname, c.cname FROM orders o JOIN salespeople s ON o.snum = s.snum JOIN customers c ON o.cnum = c.cnum;
++------+---------+----------+
+| onum | sname   | cname    |
++------+---------+----------+
+| 3003 | Peel    | Hoffman  |
+| 3009 | Axelrod | Giovanni |
+| 3005 | Serres  | Liu      |
+| 3010 | Serres  | Grass    |
+| 3007 | Serres  | Grass    |
+| 3011 | Peel    | Clemens  |
+| 3008 | Peel    | Clemens  |
+| 3006 | Rifkin  | Cisneros |
+| 3001 | Rifkin  | Cisneros |
+| 3002 | Motika  | Pereira  |
++------+---------+----------+
+10 rows in set (0.09 sec)
+
+mysql> SELECT c.cname, s.sname, s.comm FROM customers c JOIN salespeople s ON c.snum = s.snum WHERE s.comm > 0.12;
++----------+--------+------+
+| cname    | sname  | comm |
++----------+--------+------+
+| Liu      | Serres | 0.13 |
+| Grass    | Serres | 0.13 |
+| Cisneros | Rifkin | 0.15 |
++----------+--------+------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT o.onum, o.amt * s.comm AS commission FROM orders o JOIN customers c ON o.cnum = c.cnum JOIN salespeople s ON o.snum = s.snum WHERE c.rating > 100;
++------+------------+
+| onum | commission |
++------+------------+
+| 3010 |     170.29 |
+| 3007 |       9.85 |
+| 3005 |     670.86 |
+| 3006 |     164.72 |
+| 3001 |       2.80 |
+| 3009 |     171.32 |
++------+------------+
+6 rows in set (0.00 sec)
+
+mysql>

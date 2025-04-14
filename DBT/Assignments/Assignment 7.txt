@@ -1,0 +1,75 @@
+mysql> Show databases;
++--------------------+
+| Database           |
++--------------------+
+| classwork          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.13 sec)
+
+mysql> use classwork;
+Database changed
+mysql> SELECT COUNT(*) FROM Orders WHERE DATE(order_date) = '2023-10-03';
+ERROR 1054 (42S22): Unknown column 'order_date' in 'where clause'
+mysql> SELECT COUNT(*) FROM orders WHERE EXTRACT(MONTH FROM odate)=10 AND EXTRACT(DAY FROM odate)=3;
++----------+
+| COUNT(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> SELECT COUNT(DISTINCT city) FROM customers WHERE city IS NOT NULL;
++----------------------+
+| COUNT(DISTINCT city) |
++----------------------+
+|                    4 |
++----------------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT cnum, MIN(amt) FROM orders GROUP BY cnum;
++------+----------+
+| cnum | MIN(amt) |
++------+----------+
+| 2008 |    18.69 |
+| 2001 |   767.19 |
+| 2007 |  1900.10 |
+| 2003 |  5160.45 |
+| 2002 |  1713.23 |
+| 2004 |    75.75 |
+| 2006 |  4723.00 |
++------+----------+
+7 rows in set (0.04 sec)
+
+mysql> SELECT cname FROM customers WHERE cname LIKE 'G%' ORDER BY cname LIMIT 1;
++----------+
+| cname    |
++----------+
+| Giovanni |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT city, MAX(rating) FROM customers GROUP BY city;
++----------+-------------+
+| city     | MAX(rating) |
++----------+-------------+
+| London   |         100 |
+| Rome     |         200 |
+| San Jose |         300 |
+| Berlin   |         300 |
++----------+-------------+
+4 rows in set (0.04 sec)
+
+mysql> SELECT odate, COUNT(DISTINCT snum) FROM orders GROUP BY odate;
++------------+----------------------+
+| odate      | COUNT(DISTINCT snum) |
++------------+----------------------+
+| 1990-10-03 |                    4 |
+| 1990-10-04 |                    2 |
+| 1990-10-05 |                    1 |
+| 1990-10-06 |                    2 |
++------------+----------------------+
+4 rows in set (0.04 sec)
