@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aniruddha Lalge - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            display: flex;
+            flex-wrap: wrap;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.01);
+        }
+        .left-column, .right-column {
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .left-column {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f9f9f9;
+            border-right: 2px solid #0077cc;
+            border-radius: 5px 0 0 5px;
+        }
+        .right-column {
+            flex: 2;
+            min-width: 300px;
+        }
+        h1, h2 {
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        h1:hover, h2:hover {
+            color: #0077cc;
+        }
+        a {
+            color: #0077cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff6200;
+            text-decoration: underline;
+        }
+        ul {
+            line-height: 1.6;
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+        li:hover {
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+        .section {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 3px solid #0077cc;
+            transition: border-color 0.3s ease;
+        }
+        .section:hover {
+            border-color: #ff6200;
+        }
+        .toggle-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .toggle-content.active {
+            display: block;
+            opacity: 1;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-column {
+                border-right: none;
+                border-bottom: 2px solid #0077cc;
+                border-radius: 5px 5px 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="left-column">
+            <h1 onclick="toggleSection('contact')">Aniruddha Shivaji Lalge</h1>
+            <div id="contact" class="section toggle-content active">
+                <p><strong>Email:</strong> <a href="mailto:aniruddhalalge283@gmail.com">aniruddhalalge283@gmail.com</a></p>
+                <p><strong>Phone:</strong> +91 7447653314</p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/aniruddha-lalge-aa06041b3" target="_blank">Profile</a></p>
+                <p><strong>GeeksforGeeks:</strong> <a href="https://www.geeksforgeeks.org/user/aniruddhalalge283/" target="_blank">Profile</a></p>
+            </div>
+
+            <h2 onclick="toggleSection('education')">Education</h2>
+            <div id="education" class="section toggle-content active">
+                <p>B.Tech</p>
+            </div>
+
+            <h2 onclick="toggleSection('skills')">Skills</h2>
+            <div id="skills" class="section toggle-content active">
+                <ul>
+                    <li>Java - Constructors, Static Methods, Linked Lists</li>
+                    <li>Practicing array and matrix problems</li>
+                    <li>Strong foundation in DSA</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h2 onclick="toggleSection('internship')">Internship</h2>
+            <div id="internship" class="section toggle-content active">
+                <p>Suvidha Foundation – Web Development Intern</p>
+            </div>
+
+            <h2 onclick="toggleSection('project')">Project</h2>
+            <div id="project" class="section toggle-content active">
+                <p><strong>Fake Instagram Profile Identification and Classification Using Machine Learning</strong></p>
+                <ul>
+                    <li>Duration: Dec 2023 – May 2024</li>
+                    <li>Technologies: Python, SQL, Spyder IDE, VS Code</li>
+                    <li>Algorithms: SVM, Random Forest, Decision Tree</li>
+                    <li>Goal: Identify and classify fake Instagram profiles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
