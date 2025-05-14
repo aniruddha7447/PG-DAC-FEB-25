@@ -23,7 +23,7 @@ This repository contains course materials, assignments, notes, and coding practi
 | `DBT` | SQL queries, normalization, ER diagrams etc. |
 | `OOPJ` | Java programs, OOP concepts, mini projects |
 | `Prep Insta` | Coding practice questions (arrays, strings, etc.) |
-| `WPT` | HTML, CSS, JavaScript assignments and mini-projects |
+| `WPT` | HTML, CSS, JavaScript And MERN assignments and mini-projects |
 
 ## 📌 Purpose
 
